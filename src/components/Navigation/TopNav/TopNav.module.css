@@ -1,0 +1,24 @@
+@import '../../../styles/style.module.css';
+
+.TopNav {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--dark1);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    margin-left: auto;
+    height: 100%;
+}
+
+@media (max-width: 1000px) {
+    nav {
+        display: none;
+    }
+}

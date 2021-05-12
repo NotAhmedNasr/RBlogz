@@ -1,0 +1,43 @@
+@import '../../../styles/style.module.css';
+
+.Logo {
+    display: flex;
+    text-decoration: none;
+    color: var(--light1);
+    margin-right: auto;
+    margin-left: 30px;
+}
+.Logo h2 {
+    font-weight: 400;
+}
+.Logo h2::first-letter {
+    color: var(--mid);
+}
+
+.ImgLogo {
+    width: 60px;
+    margin: auto;
+}
+
+.Logo img {
+    object-fit: cover;
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+    .Logo {
+        margin-left: auto;
+        margin-right: 30px;
+    }
+
+    .Side {
+        margin-right: auto;
+        margin-left: 30px;
+        margin-top: 30px;
+        color: var(--dark1);
+    }
+
+    .Side .ImgLogo {
+        margin: 0;
+    }
+}

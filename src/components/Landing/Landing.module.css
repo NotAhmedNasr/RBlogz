@@ -1,0 +1,95 @@
+@import '../../styles/style.module.css';
+
+.HeadSection {
+    color: var(--dark1);
+    background-color: var(--light1);
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.HeadSection h1 {
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+.HeadSection h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+}
+
+.Icon::first-letter {
+    color: var(--mid);
+}
+
+.Rlogo {
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+}
+
+.BodySection {
+    color: var(--light1);
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.BodySection a {
+   display: inline-block;
+   margin-right: 10px;
+   width: 30%;
+   height: 50px;
+   font-size: 1.2rem;
+}
+
+.BodySection small {
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+
+.BodySection h3 {
+    margin-top: 100px;
+}
+
+.Or {
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Or div {
+    flex: 0 1 25%;
+    height: 1px;
+    background-color: var(--mid);
+    margin: 50px 20px;
+}
+
+.BottomSection {
+    border-top: 1px solid var(--light1);
+    color: var(--light1);
+    padding-bottom: 100px;
+}
+
+.BottomSection h1 {
+    color: #E84545;
+    font-size: 3em;
+}
+
+
+@media (max-width: 1000px) {
+    .HeadSection h2 {
+        flex-direction: column;
+    }
+}

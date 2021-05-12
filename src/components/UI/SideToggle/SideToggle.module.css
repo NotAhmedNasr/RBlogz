@@ -1,0 +1,59 @@
+@import '../../../styles/style.module.css';
+
+.SideToggle {
+    display: none;
+    margin-left: 30px;
+    flex-direction: column;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid var(--light1);
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: 0.15s;
+    position: relative;
+    overflow: hidden;
+}
+
+.SideToggle > div {
+    width: 30px;
+    height: 2px;
+    background-color: var(--light1);
+    margin: 5px auto;
+    transition-duration: 0.15s;
+    z-index: 10;
+}
+
+.SideToggle::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    border-radius: 50%;
+    z-index: 5 !important;
+    background-color: var(--light1);
+}
+
+.SideToggle:hover > div {
+    background-color: var(--dark1);
+}
+
+.SideToggle:hover::after {
+    top: -25%;
+    left: -25%;
+    width: 150%;
+    height: 150%;
+} 
+
+@media (max-width: 1000px) {
+    .SideToggle {
+        display: flex;
+    }
+}
