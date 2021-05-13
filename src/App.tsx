@@ -2,6 +2,9 @@ import React from 'react';
 import { Route, Switch } from 'react-router';
 import './App.css';
 import Landing from './components/Landing/Landing';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import Account from './components/User/Account/Account';
 import Layout from './hoc/Layout/Layout';
 
 function App() {
@@ -9,9 +12,10 @@ function App() {
     <div className="App">
       <Layout>
         <Switch>
-          <Route path='/' component={Landing} />
-          <Route path='/login' />
-          <Route path='/register' />
+          <Route exact path='/' component={Landing} />
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={Register} />
+          <Route path='/account/:id' component={Account} />
           <Route path='/about' />
           <Route path='/report' />
         </Switch>

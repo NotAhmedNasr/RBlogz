@@ -1,0 +1,12 @@
+.Info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.Text {
+    border-bottom: 1px solid var(--mid);
+    display: inline-block;
+    word-wrap: break-word;
+    max-width: 80%;
+}

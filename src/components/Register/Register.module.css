@@ -1,4 +1,4 @@
-.Login {
+.Register {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,6 +20,16 @@
     flex: 1 1 auto;
 }
 
+input[type=date] {
+    text-align: right;
+}
+
+input[type="date"]::before {
+    color: rgba(255, 255, 255, 0.5);
+    content: attr(placeholder) !important;
+    margin-right: auto;
+  }
+
 .Input:focus {
     border-radius: 3px;
     border-color: var(--mid);
@@ -33,6 +43,7 @@
     margin: 20px auto;
     gap: 1em;
     flex-wrap: wrap;
+    min-height: 110px;
 }
 
 .Icon {
@@ -42,6 +53,8 @@
 .Heading {
     color: var(--light1);
     font-size: 2.5rem;
+    width: 100%;
+    text-align: center;
 }
 
 .Submit {
@@ -74,9 +87,20 @@
     color: rgb(232, 69, 69);
 }
 
+.InputPrompt {
+    display: block;
+    width: 100%;
+    flex: 0 0 auto;
+    text-align: left;
+    padding-left: 60px;
+    color: var(--mid);
+}
+
 .Redirect {
     color: var(--light1);
     margin-top: 30px;
+    width: 100%;
+    text-align: center;
 }
 
 .Redirect a {
@@ -90,24 +114,23 @@
     opacity: 1;
 }
 
-.LoginRight {
-    display: none;
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 @media (min-width: 1000px) {
-    .LoginWrapper {
-        display: flex;
+    .Register {
         flex-direction: row;
-        padding: 0 10rem;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 2rem;
+        padding: 0 13rem;
+        padding-bottom: 5rem;
     }
-
-    .LoginRight {
-        display: block;
-        flex: 1 1 50%;
-        padding-top: 10%;
+    .InputGroup {
+        flex: 1 1 40%;
+        max-width: 50%;
+        align-items: flex-start;
     }
-
-    .LoginRight img {
-        width: 20rem;
-    }
+    
 }

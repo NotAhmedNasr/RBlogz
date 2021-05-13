@@ -12,6 +12,8 @@
     text-transform: uppercase;
     cursor: pointer;
     outline: none;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
 }
 
 .Light {
@@ -21,7 +23,6 @@
 
 .Light:hover {
     color: var(--dark1);
-    border-color: var(--dark1);
     background-color: var(--light1);
 }
 
@@ -34,6 +35,15 @@
 
 .Dark:hover {
     color: var(--light1);
-    border-color: var(--light1);
     background-color: var(--dark1);
+}
+
+.Blue {
+    color: var(--mid);
+    border: 1px solid var(--mid);
+}
+
+.Blue:hover {
+    color: var(--light1);
+    background-color: var(--mid);
 }

@@ -4,10 +4,10 @@ import classes from './NavItems.module.css';
 
 const NavItems = () => {
     const links = [
-        {link: 'login', text: 'Login'},
-        {link: 'register', text: 'Register'},
-        {link: 'about', text: 'About'},
-        {link: 'report', text: 'Report'},
+        {link: '/login', text: 'Login'},
+        {link: '/register', text: 'Register'},
+        {link: '/about', text: 'About'},
+        {link: '/report', text: 'Report'},
     ]
 
     return (

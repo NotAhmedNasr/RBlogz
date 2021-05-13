@@ -1,0 +1,16 @@
+.ImageCircle {
+    position: relative;
+}
+
+.Image {
+    border: 1px solid var(--dark2);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.ImageCircle img {
+    width: 100%;
+    object-fit: cover;
+}

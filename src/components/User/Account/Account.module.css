@@ -1,0 +1,182 @@
+.Account {
+    padding-bottom: 5rem;
+}
+
+.Top {
+    height: 250px;
+    width: 100%;
+    background-color: var(--light1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.Top h2 {
+    text-align: left;
+    margin: 10px 20px;
+    color: var(--dark2);
+}
+
+.Top > div:nth-child(1) {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.Top > div:nth-child(2) {
+    height: 1px;
+    background-color: var(--dark2);
+}
+
+.Top > div:nth-child(3) {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.ImageWrapper {
+    width: 25vw;
+    height: 25vw;
+    max-width: 200px;
+    max-height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translateY(-50%);
+}
+
+.Image {
+    width: 100%;
+    height: 100%;
+}
+
+.Info {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 10px;
+    position: relative;
+    border: 2px solid var(--mid);
+    border-radius: 5px;
+}
+
+.Info > * {
+    flex: 1 1 auto;
+    padding: 10px 10px;
+    max-width: 100%;
+    min-width: 50%;
+}
+
+.InfoWrapper {
+    background-color: var(--light1);
+    padding: 2rem;
+}
+
+.InfoIcon {
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--mid);
+    position: absolute;
+    top: 0;
+    left: 10%;
+    min-width: 0;
+    padding: 0;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background-color: var(--light1);
+}
+
+.EditIcon {
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--mid);
+    position: absolute;
+    top: 0;
+    right: 10%;
+    min-width: 0;
+    padding: 0;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background-color: var(--light1);
+    cursor: pointer;
+}
+
+.Heading {
+    color: var(--light1);
+}
+
+.Heading h1 {
+    font-size: 2.5rem;
+    margin: 0 auto;
+    padding: 0.5em;
+    width: 80%;
+    border: 10px solid var(--light1);
+    border-top: none;
+    background-color: var(--mid);
+}
+
+.EditImg {
+    position: absolute;
+    top: 95%;
+    right: 0;
+    cursor: pointer;
+}
+
+.Follow {
+    position: absolute;
+    top: 95%;
+    left: 0;
+    cursor: pointer;
+}
+
+@media (min-width: 1000px) {
+    .Top > div:nth-child(2) {
+        width: 60%;
+        margin: auto;
+    }
+
+    .Top h2 {
+        padding-left: 20%;
+    }
+
+    .Info {
+        width: 100%;
+        margin: auto;
+        min-height: 60vh;
+    }
+
+    .Wrapper {
+        display: flex;
+        height: calc(100vh - 80px);
+    }
+
+    .Wrapper section {
+        height: 100%;
+    }
+
+    .ImageWrapper {
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Top {
+        padding-top: 30vh;
+    }
+
+    .Top h2 {
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .InfoWrapper {
+        padding-top: 15vh;
+        background-color: var(--dark2);
+        color: var(--light1);
+    }
+
+    .Heading h1 {
+        border: 10px solid var(--light1);
+    }
+}

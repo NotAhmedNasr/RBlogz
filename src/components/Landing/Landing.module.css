@@ -11,7 +11,7 @@
 }
 
 .HeadSection h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 400;
 }
 
@@ -20,6 +20,7 @@
     align-items: center;
     justify-content: center;
     font-weight: 400;
+    flex-direction: column;
 }
 
 .Icon::first-letter {
@@ -45,8 +46,8 @@
 .BodySection a {
    display: inline-block;
    margin-right: 10px;
-   width: 30%;
-   height: 50px;
+   width: 70%;
+   height: 60px;
    font-size: 1.2rem;
 }
 
@@ -87,9 +88,12 @@
     font-size: 3em;
 }
 
+@media (min-width: 1000px) {
+    .Wrapper {
+        display: flex;
+    }
 
-@media (max-width: 1000px) {
-    .HeadSection h2 {
-        flex-direction: column;
+    .Wrapper section {
+        flex: 1 1 50%;
     }
 }
