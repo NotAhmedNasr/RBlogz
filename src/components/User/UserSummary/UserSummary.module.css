@@ -1,0 +1,39 @@
+.UserSummary {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    gap: 20px;
+    margin: auto;
+    position: relative;
+}
+
+.Image {
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.Image img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.Info {
+    text-align: left;
+}
+
+.Info div:nth-child(2) {
+    background-color: var(--light1);
+    height: 1px;
+    margin: 5px 0;
+}
+
+.UserSummary a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}

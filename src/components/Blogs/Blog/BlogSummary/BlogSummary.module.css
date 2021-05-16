@@ -1,0 +1,55 @@
+.BlogSummary {
+    width: 100%;
+    background-color: var(--light1);
+    border-radius: 2px;
+    overflow: hidden;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.Image {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.Image img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.Heading {
+    margin: 0;
+    padding: 0 20px 5px 20px;
+}
+
+.Author {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+}
+
+.AuthorImage {
+    width: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.AuthorImage img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.Info {
+    display: flex;
+    gap: 20%;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.Info > div {
+    padding: 5px 10px;
+}

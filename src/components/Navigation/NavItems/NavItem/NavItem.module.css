@@ -29,12 +29,13 @@
     position: absolute;
     top: 70%;
     left: 0;
-    transition-duration: 0.2s;
+    transition-duration: 0;
     transition-timing-function: ease-in-out;
 }
 
 .NavItem a:hover::after {
     width: 100%;
+    transition-duration: 0.3s;
 }
 
 @media (max-width: 1000px) {
@@ -68,6 +69,7 @@
     .NavItem a:hover::after {
         left: -20%;
         width: 150%;
+        transition-duration: 0.3s;
     }
 
 }
