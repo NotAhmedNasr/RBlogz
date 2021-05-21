@@ -2,14 +2,23 @@ import classes from './UserSummary.module.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserSummary = () => {
+interface Props {
+    theme: string
+}
+
+const UserSummary = ({theme}: Props) => {
+    const infoStyle = [];
+    infoStyle.push(classes.Info);
+
+    theme === 'light' && infoStyle.push(classes.Light);
+    theme === 'dark' && infoStyle.push(classes.Dark);
 
     return (
         <div className={classes.UserSummary}>
             <div className={classes.Image}>
-                <img src={'https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png'} alt='user' />
+                <img src={'https://image.flaticon.com/icons/png/512/147/147144.png'} alt='user' />
             </div>
-            <div className={classes.Info}>
+            <div className={infoStyle.join(' ')}>
                 <div>FirstName LastName</div>
                 <div></div>
                 <div>@username</div>

@@ -10,7 +10,7 @@
     color: white;
     display: flex;
     align-items: center;
-    z-index: 50;
+    z-index: 75;
 }
 
 nav {

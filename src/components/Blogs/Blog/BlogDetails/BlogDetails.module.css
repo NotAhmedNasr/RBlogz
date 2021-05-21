@@ -1,1 +1,81 @@
+.BlogDetails {
+    padding: 3em 0;
+}
 
+.BlogDetails > h1 {
+    color: var(--light1);
+}
+
+.Author {
+    margin-bottom: 5em;
+    color: var(--light1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.Image {
+    width: 90%;
+    overflow: hidden;
+    margin: 5em auto;
+}
+
+.Image img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.Body {
+    width: 90%;
+    margin: auto;
+    color: var(--light1);
+    font-size: 1.25rem;
+}
+
+.Actions {
+    color: var(--light1);
+    display: flex;
+    gap: 50px;
+    padding-left: 10vw;
+    margin-top: 3em;
+}
+
+.Actions div {
+    cursor: pointer;
+}
+
+.CommentForm {
+    width: 100%;
+    margin-top: 5em;
+}
+
+.CommentForm textarea {
+    resize: none;
+    width: 80% !important;
+    height: 5em !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-family: inherit;
+    font-size: 1em;
+    border: none;
+    outline: none;
+    caret-color: var(--light1);
+    color: var(--light1);
+    padding: 10px 20px;
+}
+.CommentForm div {
+    width: 150px;
+}
+
+.CommentFormActions {
+    display: flex;
+    align-items: flex-start;
+    gap: 2em;
+    padding-left: 10%;
+    margin-top: 2em;
+}
+
+.Comments {
+    width: 90%;
+    margin: 5em auto;
+}

@@ -1,0 +1,60 @@
+.BlogForm {
+    padding: 3em 0;
+    color: white;
+}
+
+.InputGroup {
+    margin: 50px 10px;
+}
+
+.InputGroup input {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.InputGroup textarea {
+    resize: none;
+    width: 100% !important;
+    height: 15em !important;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-family: inherit;
+    font-size: 1.5em;
+    border: none;
+    outline: none;
+    caret-color: var(--light1);
+    color: var(--light1);
+    padding: 10px 20px;
+}
+
+.InputGroup .Guide {
+    color: var(--mid);
+    text-align: left;
+    display: block;
+    padding: 10px 20px;
+}
+
+.InputGroup > .Invaild {
+    color: rgb(232, 69, 69);
+    font-weight: bold;
+    text-align: left;
+    display: block;
+    padding: 10px 20px;
+}
+
+.Submit {
+    width: 50%;
+    margin: auto;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 1000px) {
+    .BlogForm {
+        padding: 3em;
+    }
+}

@@ -1,14 +1,40 @@
 import classes from './Login.module.css';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import OutlineButton, { BtnTone } from '../UI/OutilneButton/OutlineButton';
 import { FcManager, FcKey, FcGoogle } from "react-icons/fc";
 import { IconContext } from "react-icons";
-import { Link } from 'react-router-dom';
-import LogoImg from '../../assests/images/logo1.png'; 
+import { Link, useHistory } from 'react-router-dom';
+import LogoImg from '../../assests/images/logo1.png';
+import { login } from '../../Services/UserService';
+import UserContext from '../../Context/UserContext';
+import Spinner from '../UI/Spinner/Spinner';
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [invalid, setInvalid] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const history = useHistory();
+    let context = useContext(UserContext);
+
+    const loginHandler = async () => {
+        setLoading(true);
+        try {
+            const { data: user } = await login({ username, password });
+            context?.setUser(user);
+            localStorage.setItem('Authorization', user.token);
+            localStorage.setItem('user_id', user._id);
+            history.replace('/');
+            setLoading(false);
+        } catch (error) {
+            if (error.response.status) {
+                setInvalid(true);
+                setPassword('');
+            }
+            setLoading(false);
+        }
+    }
 
     return (
         <div className={classes.LoginWrapper}>
@@ -28,7 +54,6 @@ const Login = () => {
                         placeholder='Username'
                         value={username}
                         onChange={(e) => { setUsername(e.currentTarget.value) }} />
-                    <small className={classes.Invalid}></small>
                 </div>
                 <div className={classes.InputGroup}>
                     <IconContext.Provider value={{ size: '2.5em', style: { verticalAlign: 'middle', flex: '0 0 auto' } }}>
@@ -42,13 +67,17 @@ const Login = () => {
                         placeholder='Password'
                         value={password}
                         onChange={(e) => { setPassword(e.currentTarget.value) }} />
-                    <small className={classes.Invalid}>Invalid Password!</small>
+                    {invalid ? <small className={classes.Invalid}>Invalid Username Or Password!</small> : null}
                 </div>
 
-                <div className={classes.Submit}>
+                {
+                    loading ? <Spinner size={50} /> : null
+                }
+
+                <div className={classes.Submit} onClick={loginHandler}>
                     <OutlineButton tone={BtnTone.light}>
                         Login
-                </OutlineButton>
+                    </OutlineButton>
                 </div>
 
                 <div className={classes.Google}>

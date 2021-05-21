@@ -1,0 +1,26 @@
+.Comment {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin: 50px 0;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.Comment div:nth-child(1) {
+    flex: 0 0 auto;
+}
+
+.Body {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 3px;
+    padding: 20px;
+    text-align: left;
+}
+
+@media (min-width: 1000px) {
+    .Comment {
+        flex-direction: row;
+    }
+}

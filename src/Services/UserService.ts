@@ -9,7 +9,7 @@ export const edit = (user: User) => {
     return axios.patch(`/user/${user._id}`, user);
 }
 
-export const deleteOne = (id: number) => {
+export const deleteOne = (id: string) => {
     return axios.delete(`/user/${id}`);
 }
 
@@ -19,7 +19,7 @@ export const getMany = (page: number, count: number) => {
     });
 }
 
-export const getOne = (id: number) => {
+export const getOne = (id: string) => {
     return axios.get(`user/${id}`);
 }
 

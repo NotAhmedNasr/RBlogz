@@ -1,9 +1,10 @@
 import classes from './Register.module.css';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import OutlineButton, { BtnTone } from '../UI/OutilneButton/OutlineButton';
 import { FcManager, FcKey, FcAddressBook, FcPlanner, FcInfo, FcGoogle, FcOk } from "react-icons/fc";
 import { IconContext } from "react-icons";
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import UserContext from '../../Context/UserContext';
 
 const Register = () => {
     const [username, setUsername] = useState('');
@@ -14,9 +15,11 @@ const Register = () => {
     const [lname, setLname] = useState('');
     const [dob, setDob] = useState('');
 
+    const context = useContext(UserContext);
 
     return (
         <div className={classes.Register}>
+            {context?.user ? <Redirect to='/' /> : null}
             <h1 className={classes.Heading}>
                 Registration Form
             </h1>

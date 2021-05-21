@@ -4,7 +4,6 @@
     height: fit-content;
     align-items: center;
     gap: 20px;
-    margin: auto;
     position: relative;
 }
 
@@ -24,10 +23,25 @@
     text-align: left;
 }
 
+.Info.Dark {
+    color: var(--light1);
+}
+
+.Info.Light {
+    color: var(--dark2);
+}
+
 .Info div:nth-child(2) {
-    background-color: var(--light1);
     height: 1px;
     margin: 5px 0;
+}
+
+.Info.Dark div:nth-child(2) {
+    background-color: var(--light1);
+}
+
+.Info.Light div:nth-child(2) {
+    background-color: var(--dark2);
 }
 
 .UserSummary a {
