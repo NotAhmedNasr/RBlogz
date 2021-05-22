@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import { Redirect } from 'react-router';
-import UserContext from '../../Context/UserContext';
+import userContext from '../../Context/UserContext';
 
 const Logout = () => {
-    const context = useContext(UserContext);
+    const context = useContext(userContext);
 
     useEffect(() => {
         localStorage.clear();

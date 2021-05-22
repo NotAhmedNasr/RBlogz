@@ -1,13 +1,14 @@
 import classes from './Login.module.css';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import OutlineButton, { BtnTone } from '../UI/OutilneButton/OutlineButton';
 import { FcManager, FcKey, FcGoogle } from "react-icons/fc";
 import { IconContext } from "react-icons";
 import { Link, useHistory } from 'react-router-dom';
 import LogoImg from '../../assests/images/logo1.png';
 import { login } from '../../Services/UserService';
-import UserContext from '../../Context/UserContext';
+import userContext from '../../Context/UserContext';
 import Spinner from '../UI/Spinner/Spinner';
+import { loginUser } from '../../Services/AuthService';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -16,24 +17,30 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
 
     const history = useHistory();
-    let context = useContext(UserContext);
+    let context = useContext(userContext);
+
+    useEffect(() => {
+        if (context?.user) {
+            history.replace('/');
+        }
+        return () => {
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            context = null;
+        }
+    }, [context?.user, history]);
 
     const loginHandler = async () => {
         setLoading(true);
-        try {
-            const { data: user } = await login({ username, password });
-            context?.setUser(user);
-            localStorage.setItem('Authorization', user.token);
-            localStorage.setItem('user_id', user._id);
-            history.replace('/');
+        login({ username, password }).then(({ data: user }) => {
+            loginUser(user, context!);
             setLoading(false);
-        } catch (error) {
-            if (error.response.status) {
+        }).catch(err => {
+            if (err.response.status) {
                 setInvalid(true);
                 setPassword('');
             }
             setLoading(false);
-        }
+        });
     }
 
     return (

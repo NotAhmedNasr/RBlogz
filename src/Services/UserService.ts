@@ -1,7 +1,8 @@
 import axios from '../axios/axios';
+import RegisterUser from '../Models/RegisterUser';
 import User from '../Models/User';
 
-export const add = (user: User) => {
+export const add = (user: RegisterUser) => {
     return axios.post('/user', user);
 }
 
@@ -20,7 +21,7 @@ export const getMany = (page: number, count: number) => {
 }
 
 export const getOne = (id: string) => {
-    return axios.get(`user/${id}`);
+    return axios.get<User>(`user/${id}`);
 }
 
 interface Login {

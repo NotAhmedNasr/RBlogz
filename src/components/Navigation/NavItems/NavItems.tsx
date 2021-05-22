@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import UserContext from '../../../Context/UserContext';
+import userContext from '../../../Context/UserContext';
 import NavItem from './NavItem/NavItem';
 import classes from './NavItems.module.css';
 
 const NavItems = () => {
-    const context = useContext(UserContext);
+    const context = useContext(userContext);
 
     const fixedLinks = [
         { link: '/about', text: 'About' },

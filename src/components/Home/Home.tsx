@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import UserContext from '../../Context/UserContext';
+import userContext from '../../Context/UserContext';
 import Blogs from '../Blogs/Blogs';
 import Landing from '../Landing/Landing';
 
 
 const Home = () => {
-    const context = useContext(UserContext);
+    const context = useContext(userContext);
 
     let rendered = context?.user ? <Blogs /> : <Landing />;
 

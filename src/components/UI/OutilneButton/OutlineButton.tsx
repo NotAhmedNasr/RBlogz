@@ -2,14 +2,16 @@ import classes from './OutlineButton.module.css';
 import React, { FC } from 'react';
 
 interface Props {
-    tone: BtnTone
+    tone: BtnTone,
+    disabled?: boolean,
+    submit?: boolean,
 }
 
 export enum BtnTone {
     dark, light ,blue
 }
 
-const OutlineButton:FC<Props> = ({children, tone}) => {
+const OutlineButton:FC<Props> = ({children, tone, disabled, submit}) => {
     
     const style = [];
     style.push(classes.OutlineButton);
@@ -29,7 +31,10 @@ const OutlineButton:FC<Props> = ({children, tone}) => {
     }
     
     return (
-    <button className={style.join(' ')} type='button'>
+    <button 
+        className={style.join(' ')} 
+        type={submit ? 'submit' : 'button'}
+        disabled={disabled}>
         {children}
     </button>
     );

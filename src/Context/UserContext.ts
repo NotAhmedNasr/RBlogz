@@ -1,11 +1,11 @@
 import {createContext} from 'react';
 import User from '../Models/User';
 
-interface Context {
+export interface UserContext {
     user: User | null,
     setUser: React.Dispatch<React.SetStateAction<User | null>>,
 }
 
-const UserContext = createContext<Context | null>(null);
+const userContext = createContext<UserContext | null>(null);
 
-export default UserContext;
+export default userContext;

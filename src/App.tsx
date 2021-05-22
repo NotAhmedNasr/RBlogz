@@ -10,7 +10,7 @@ import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
 import Spinner from './components/UI/Spinner/Spinner';
 import Account from './components/User/Account/Account';
-import UserContext from './Context/UserContext';
+import userContext from './Context/UserContext';
 import Layout from './hoc/Layout/Layout';
 import User from './Models/User';
 import { getOne } from './Services/UserService';
@@ -44,7 +44,7 @@ function App() {
 
   const rendered = loaded ? (
     <div className="App">
-      <UserContext.Provider value={providedValue}>
+      <userContext.Provider value={providedValue}>
         <Layout>
           <Switch>
             <Route exact path='/' component={Home} />
@@ -63,7 +63,7 @@ function App() {
             <Route path='/logout' component={Logout} />
           </Switch>
         </Layout>
-      </UserContext.Provider>
+      </userContext.Provider>
     </div>
   ) : (
     <div style={{ margin: '200px auto' }}>

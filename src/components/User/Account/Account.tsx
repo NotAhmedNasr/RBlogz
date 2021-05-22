@@ -1,40 +1,46 @@
 import classes from './Account.module.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import ImageCircle from '../../UI/ImageCircle/ImageCircle';
 import ProfileImg from '../../../assests/images/Profile.png'
 import Info from '../../UI/Info/Info';
 import { IconContext } from 'react-icons/lib';
 import { FcAddDatabase, FcAddressBook, FcBusinessman, FcCalendar, FcCamera, FcDeleteDatabase, FcInfo, FcSettings } from 'react-icons/fc';
+import User from '../../../Models/User';
+import { getOne } from '../../../Services/UserService';
+import Spinner from '../../UI/Spinner/Spinner';
 
 interface Params {
     id: string,
 }
 
 const Account = () => {
-
     const { id }: Params = useParams();
-    const user = {
-        username: 'ahmedali123',
-        firstname: 'Ahmed',
-        lastname: 'Ali',
-        email: 'ahmed@mail.com',
-        birthDate: new Date(1993, 8, 22),
-        createdAt: new Date(),
-    }
-    return (
-        <div className={classes.Account}>
+    const [user, setUser] = useState<User>();
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        getOne(id).then(res => {
+            setUser(res.data);
+            setLoaded(true);
+        }).catch(err => {
+            console.log(err);
+        });
+    }, [id]);
+
+    const rendered = loaded ?
+        (<div className={classes.Account}>
             <div className={classes.Wrapper}>
                 <section className={classes.Top}>
                     <div>
-                        <h2>{`${user.firstname} ${user.lastname}`}</h2>
+                        <h2>{`${user?.firstname} ${user?.lastname}`}</h2>
                     </div>
                     <div></div>
                     <div>
-                        <h2>{`@${user.username}`}</h2>
+                        <h2>{`@${user?.username}`}</h2>
                     </div>
                     <div className={classes.ImageWrapper}>
-                        <ImageCircle url={ProfileImg} passedClass={classes.Image} />
+                        <ImageCircle url={user?.profilePic || ProfileImg} passedClass={classes.Image} />
                         <i className={classes.EditImg}>
                             <IconContext.Provider value={{ size: '1.5em' }}>
                                 <FcCamera />
@@ -54,22 +60,22 @@ const Account = () => {
                 </section>
                 <section className={classes.InfoWrapper}>
                     <div className={classes.Info}>
-                        <Info text={`${user.firstname} ${user.lastname}`}>
+                        <Info text={`${user?.firstname} ${user?.lastname}`}>
                             <IconContext.Provider value={{ size: '1.5em' }}>
                                 <FcBusinessman />
                             </IconContext.Provider>
                         </Info>
-                        <Info text={`${user.email}`}>
+                        <Info text={`${user?.email}`}>
                             <IconContext.Provider value={{ size: '1.5em' }}>
                                 <FcAddressBook />
                             </IconContext.Provider>
                         </Info>
-                        <Info text={`Birth Date: ${user.birthDate.toLocaleDateString()}`}>
+                        <Info text={`Birth Date: ${(new Date(user?.birthDate || '1/1/1940')).toLocaleDateString()}`}>
                             <IconContext.Provider value={{ size: '1.5em' }}>
                                 <FcCalendar />
                             </IconContext.Provider>
                         </Info>
-                        <Info text={`Join Date: ${user.createdAt.toLocaleDateString()}`}>
+                        <Info text={`Join Date: ${(new Date(user?.createdAt!)).toLocaleDateString()}`}>
                             <IconContext.Provider value={{ size: '1.5em' }}>
                                 <FcCalendar />
                             </IconContext.Provider>
@@ -92,8 +98,13 @@ const Account = () => {
                     <h1>Latest Blogs</h1>
                 </div>
             </section>
-        </div>
-    );
+        </div>) : (
+            <div style={{ margin: '200px auto' }}>
+                <Spinner size={200} />
+            </div>
+        );
+
+    return rendered;
 }
 
 export default Account;

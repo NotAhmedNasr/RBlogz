@@ -16,6 +16,12 @@
     transition-timing-function: ease-in-out;
 }
 
+.OutlineButton:disabled {
+    background-color: lightgray;
+    color: grey;
+    cursor: not-allowed;
+}
+
 .Light {
     color: var(--light1);
     border: 1px solid var(--light1);
@@ -47,3 +53,4 @@
     color: var(--light1);
     background-color: var(--mid);
 }
+
