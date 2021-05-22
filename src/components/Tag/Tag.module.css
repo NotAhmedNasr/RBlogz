@@ -1,0 +1,18 @@
+.Tag {
+    height: 40px;
+    border-radius: 20px;
+    background-color: var(--mid);
+    color: var(--light1);
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 10px 20px;
+    width: fit-content;
+}
+
+.Text {
+    text-decoration: underline;
+}
+
+
+

@@ -53,8 +53,66 @@
     font-size: 1.5rem;
 }
 
+.TagForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 20px;
+    gap: 20px;
+}
+
+.TagForm .Tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.TagForm .InputGroup {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.TagForm .InputGroup input {
+    display: inline-block;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    flex: 1 1 auto;
+    margin-right: 20px;
+}
+
+.Tag {
+    cursor: pointer;
+}
+
+.TagForm h3 {
+    padding: 0;
+    margin: 0;
+    align-self: center;
+}
+
 @media (min-width: 1000px) {
     .BlogForm {
         padding: 3em;
+    }
+
+    .TagForm {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .TagForm .Tags {
+        max-width: 65%;
+    }
+
+    .TagForm .InputGroup {
+        width: 35%;
+        margin-left: auto;
     }
 }

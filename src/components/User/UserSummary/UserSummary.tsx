@@ -1,12 +1,15 @@
 import classes from './UserSummary.module.css';
-import React from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { Author } from '../../../Models/Blog';
+import Profile from '../../../assests/images/Profile.png';
 
 interface Props {
-    theme: string
+    theme: string,
+    user: Author,
 }
 
-const UserSummary = ({theme}: Props) => {
+const UserSummary: FC<Props> = ({ theme, user }) => {
     const infoStyle = [];
     infoStyle.push(classes.Info);
 
@@ -16,14 +19,14 @@ const UserSummary = ({theme}: Props) => {
     return (
         <div className={classes.UserSummary}>
             <div className={classes.Image}>
-                <img src={'https://image.flaticon.com/icons/png/512/147/147144.png'} alt='user' />
+                <img src={user.profilePic || Profile} alt='user' />
             </div>
             <div className={infoStyle.join(' ')}>
-                <div>FirstName LastName</div>
+                <div>{user.firstname + ' ' + user.lastname}</div>
                 <div></div>
-                <div>@username</div>
+                <div>@{user.username}</div>
             </div>
-            <Link to='/account/5'></Link>
+            <Link to={`/account/${user._id}`}></Link>
         </div>
     );
 }

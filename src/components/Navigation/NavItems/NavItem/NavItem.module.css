@@ -38,6 +38,10 @@
     transition-duration: 0.3s;
 }
 
+.Active a::after {
+    width: 100%;
+}
+
 @media (max-width: 1000px) {
     .NavItem {
         margin: 0;
@@ -70,6 +74,15 @@
         left: -20%;
         width: 150%;
         transition-duration: 0.3s;
+    }
+
+    .Active a {
+        color: var(--light1);
+    }
+
+    .Active a::after {
+        left: -20%;
+        width: 150%;
     }
 
 }

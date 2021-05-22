@@ -5,13 +5,14 @@ interface Props {
     tone: BtnTone,
     disabled?: boolean,
     submit?: boolean,
+    onClick?: any,
 }
 
 export enum BtnTone {
     dark, light ,blue
 }
 
-const OutlineButton:FC<Props> = ({children, tone, disabled, submit}) => {
+const OutlineButton:FC<Props> = ({children, tone, disabled, submit, onClick}) => {
     
     const style = [];
     style.push(classes.OutlineButton);
@@ -34,7 +35,8 @@ const OutlineButton:FC<Props> = ({children, tone, disabled, submit}) => {
     <button 
         className={style.join(' ')} 
         type={submit ? 'submit' : 'button'}
-        disabled={disabled}>
+        disabled={disabled}
+        onClick={onClick}>
         {children}
     </button>
     );

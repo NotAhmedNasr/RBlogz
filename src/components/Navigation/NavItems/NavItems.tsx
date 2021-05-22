@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
+import { useLocation } from 'react-router';
 import userContext from '../../../Context/UserContext';
 import NavItem from './NavItem/NavItem';
 import classes from './NavItems.module.css';
 
 const NavItems = () => {
     const context = useContext(userContext);
+
+    const location = useLocation();
 
     const fixedLinks = [
         { link: '/about', text: 'About' },
@@ -27,7 +30,7 @@ const NavItems = () => {
     return (
         <ul className={classes.NavItems}>
             {links.map(l => {
-                return <NavItem key={l.link} link={l.link}>{l.text}</NavItem>
+                return <NavItem key={l.link} link={l.link} active={location.pathname === l.link}>{l.text}</NavItem>
             })}
             {context?.user ? <NavItem key={'logout'} link={'/logout'}>Logout</NavItem> : null}
         </ul>

@@ -5,6 +5,7 @@
     margin: 50px 0;
     padding-bottom: 50px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
 }
 
 .Comment div:nth-child(1) {
@@ -17,10 +18,29 @@
     border-radius: 3px;
     padding: 20px;
     text-align: left;
+    word-wrap: break-word;
+}
+
+.Icon {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.Icon svg {
+    cursor: pointer;
 }
 
 @media (min-width: 1000px) {
     .Comment {
         flex-direction: row;
+    }
+
+    .Body {
+        max-width: 65%;
     }
 }

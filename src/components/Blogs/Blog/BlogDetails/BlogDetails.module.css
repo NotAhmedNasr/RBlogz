@@ -28,17 +28,20 @@
 
 .Body {
     width: 90%;
+    word-wrap: break-word;
     margin: auto;
     color: var(--light1);
     font-size: 1.25rem;
+    text-align: left;
 }
 
 .Actions {
     color: var(--light1);
     display: flex;
     gap: 50px;
-    padding-left: 10vw;
-    margin-top: 3em;
+    width: 90%;
+    margin: 20px auto;
+    padding: 2em 2em;
 }
 
 .Actions div {
@@ -47,7 +50,7 @@
 
 .CommentForm {
     width: 100%;
-    margin-top: 5em;
+    margin-top: 2em;
 }
 
 .CommentForm textarea {
@@ -77,5 +80,25 @@
 
 .Comments {
     width: 90%;
-    margin: 5em auto;
+    margin: 20px auto;
+}
+
+.Tag {
+    cursor: pointer;
+}
+
+.Tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.Divider {
+    width: 90%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 20px auto;
 }

@@ -23,23 +23,19 @@ const Login = () => {
         if (context?.user) {
             history.replace('/');
         }
-        return () => {
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            context = null;
-        }
     }, [context?.user, history]);
 
     const loginHandler = async () => {
         setLoading(true);
         login({ username, password }).then(({ data: user }) => {
-            loginUser(user, context!);
             setLoading(false);
+            loginUser(user, context!);
         }).catch(err => {
+            setLoading(false);
             if (err.response.status) {
                 setInvalid(true);
                 setPassword('');
             }
-            setLoading(false);
         });
     }
 

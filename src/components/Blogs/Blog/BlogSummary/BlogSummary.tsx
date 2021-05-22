@@ -1,35 +1,45 @@
 import classes from './BlogSummary.module.css';
-import React from 'react';
+import React, { FC } from 'react';
 import { IconContext } from 'react-icons/lib';
 import { FcComments, FcLike } from 'react-icons/fc';
 import Placeholder from '../../../../assests/images/Placeholder.jpg';
 import Profile from '../../../../assests/images/Profile.png';
+import { Author } from '../../../../Models/Blog';
 
-const BlogSummary = () => {
+interface Props {
+    title: string,
+    author: Author,
+    date: string,
+    likes: number,
+    comments: number,
+    image: string,
+}
+
+const BlogSummary: FC<Props> = ({title, author, date, likes, comments, image}) => {
 
 
     return (
         <div className={classes.BlogSummary}>
             <div className={classes.Image}>
-                <img src={Placeholder} alt='blog' />
+                <img src={image || Placeholder} alt='blog' />
             </div>
             <div className={classes.Heading}>
-                <h2>This is Blog's Title</h2>
+                <h2>{title}</h2>
                 <span>By</span>
                 <div className={classes.Author}>
                     <div className={classes.AuthorImage}>
-                        <img src={Profile} alt='author' />
+                        <img src={author.profilePic || Profile} alt='author' />
                     </div>
-                    <h3>Blog's Author</h3>
+                    <h3>{author.firstname + ' ' + author.lastname}</h3>
                 </div>
             </div>
 
             <div>
-                {new Date().toLocaleDateString('en-gb', {
+                {new Date(date).toLocaleDateString('en-gb', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
-                })} &nbsp; {new Date().toLocaleTimeString()}
+                })} &nbsp; {new Date(date).toLocaleTimeString()}
             </div>
 
             <div className={classes.Info}>
@@ -38,14 +48,14 @@ const BlogSummary = () => {
                         <FcLike />
                     </IconContext.Provider>
                     &nbsp;
-                    <span>15</span>
+                    <span>{likes}</span>
                 </div>
                 <div>
                     <IconContext.Provider value={{ style: { verticalAlign: 'middle' }, size: '1.5rem' }}>
                         <FcComments />
                     </IconContext.Provider>
                     &nbsp;
-                    <span>10</span>
+                    <span>{comments}</span>
                 </div>
             </div>
         </div>
