@@ -21,7 +21,7 @@ const NavItems = () => {
 
     const authLinks = [
         { link: '/blog/new', text: 'New Blog' },
-        { link: '/People', text: 'People' },
+        { link: '/people', text: 'People' },
         { link: `/account/${context?.user?._id}`, text: 'Account' },
     ];
 

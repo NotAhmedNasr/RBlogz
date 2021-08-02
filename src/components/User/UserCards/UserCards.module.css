@@ -1,0 +1,12 @@
+.UserCards {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    padding: 20px 0;
+}
+
+@media (min-width: 1000px) {
+    .UserCards {
+        padding: 20px;
+    }
+}

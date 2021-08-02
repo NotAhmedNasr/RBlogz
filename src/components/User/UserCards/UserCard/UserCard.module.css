@@ -1,0 +1,68 @@
+.UserCard {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 20px;
+    background-color: white;
+    border-radius: 3px;
+    padding: 1em;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Image {
+    width: 20vw;
+    height: 20vw;
+}
+
+.Image img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.Info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 1.5rem;
+}
+
+.Info > div {
+    max-width: 80vw;
+    word-wrap: break-word;
+}
+
+.Info > div:nth-child(2) {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+}
+
+.Counts {
+    margin-top: 2vw;
+    display: flex;
+    gap: 5vw;
+}
+
+.Spacer {
+    flex: 1 1 auto;
+}
+
+.Counts > div {
+    display: flex;
+}
+
+.Actions {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+
+.Actions button {
+    max-width: 50%;
+    font-size: 1rem;
+    font-weight: 700;
+}

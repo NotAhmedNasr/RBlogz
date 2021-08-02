@@ -7,6 +7,7 @@ import BlogDetails from './components/Blogs/Blog/BlogDetails/BlogDetails';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
+import People from './components/People/People';
 import Register from './components/Register/Register';
 import Spinner from './components/UI/Spinner/Spinner';
 import Account from './components/User/Account/Account';
@@ -58,6 +59,7 @@ function App() {
             <Route path='/report' />
             {!user ? <Redirect to='/login' /> : null}
             <Route path='/blog/new' component={BlogAdd} />
+            <Route path='/people' component={People} />
             <Route path='/account/:id' component={Account} />
             <Route path='/blog/:id' component={BlogDetails} />
             <Route path='/logout' component={Logout} />
